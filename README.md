@@ -11,7 +11,7 @@ HOW TO BUILD
 
 1) Install the "2024-03-15-raspios-bookworm-armhf.img.xz" version of Raspberry Pi OS
 2) Do a basic set up, do not update or install anything.
-3) Run in the terminal - wget https://github.com/2048hertz/RobertOS/releases/download/V0.1-ALPHA/installer.sh
+3) Run in the terminal - wget https://github.com/2048hertz/RobertOS/releases/download/0.1/installer.sh
 4) Configuration will be done for you!
 5) You will boot into an installer where you will set up your user account, set your timezone, locale, etc.
 6) There! In 5 steps you have successfully built RobertOS
