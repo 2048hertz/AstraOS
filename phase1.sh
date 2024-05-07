@@ -27,6 +27,21 @@ sudo apt install -y snap
 sudo snap install -y core
 sudo apt install -y git
 sudo apt-get install -y python3-gi
+# Edit /boot/cmdline.txt
+echo "Editing /boot/cmdline.txt..."
+sudo sed -i 's/ quiet splash //g' /boot/cmdline.txt
+
+# Check for /boot/config.txt (Optional for some Raspberry Pi versions)
+if [ -f /boot/config.txt ]; then
+  echo "Editing /boot/config.txt..."
+  # Check if disable_splash is already set
+  if grep -q "^disable_splash=1" /boot/config.txt; then
+    echo "disable_splash=1 already exists."
+  else
+    # Add disable_splash=1 if not present
+    sudo echo "disable_splash=1" >> /boot/config.txt
+  fi
+fi
 
 # Check if cron is installed
 if ! command -v cron &> /dev/null; then
