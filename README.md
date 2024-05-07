@@ -1,4 +1,4 @@
-# RobertOS
+# RobertOS HOME
 An ARM64 Linux based operating system for the Robert Computer (Raspberry Pi handheld computer). Based off of Raspberry Pi OS
 
 WORK IN PROGRESS - Currently RobertOS can only be built by the user
