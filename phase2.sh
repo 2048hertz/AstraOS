@@ -6,6 +6,11 @@ sudo mv /home/RobertOS-assets /usr/bin/RobertOS-assets
 sudo sh /usr/bin/RobertOS-assets/robertdesetup.sh
 sudo apt-get remove -y rp-prefapps lxappearance lxde lxde-* lxinput lxmenu-data lxpanel lxpolkit lxrandr lxsession* lxsession lxshortcut lxtask lxterminal
 sudo apt-get autoremove -y && sudo apt-get autoclean -y
+sudo wget https://github.com/2048hertz/robertosupdatemanager/releases/download/1.0/rum.zip
+sudo unzip rum.zip
+cd /rum/
+sudo sh RobertOS_Update_Manager.sh
+cd
 
 
 # MAIN CONFIG FINISHED
