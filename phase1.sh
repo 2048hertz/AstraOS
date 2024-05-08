@@ -52,26 +52,18 @@ fi
 # Call function to disable splash screen
 disable_splash_screen
 
-echo "Splash screen disabled. You can reboot later to apply changes."
+echo "Splash screen disabled."
 
-# Check for /boot/config.txt (Optional for some Raspberry Pi versions)
-if [ -f /boot/config.txt ]; then
-  echo "Editing /boot/config.txt..."
-  # Check if disable_splash is already set
-  if grep -q "^disable_splash=1" /boot/config.txt; then
-    echo "disable_splash=1 already exists."
-  else
-    # Add disable_splash=1 if not present
-    sudo echo "disable_splash=1" >> /boot/config.txt
-  fi
-fi
+# Function to grant sudo privileges
+grant_sudo_privileges() {
+    # Add the user to the sudo group
+    echo "Granting sudo privileges..."
+    sudo usermod -aG sudo $USER
+}
 
-# Check if cron is installed
-if ! command -v cron &> /dev/null; then
-    echo "Cron is not installed, installing cron"
-    sudo apt update
-    sudo apt install -y cron
-    echo "Cron installed successfully."
+# Check if user has sudo privileges
+if [ "$(id -u)" -ne 0 ]; then
+    grant_sudo_privileges
 fi
 
 # Define the path to the script to be executed
@@ -80,7 +72,29 @@ script_path="/home/RobertOS-assets/phase2.sh"
 # Make the script executable
 chmod +x "$script_path"
 
-# Add cron job to run the script at reboot
-(crontab -l ; echo "@reboot $script_path") | crontab -
+# Create a new service unit file for phase2
+phase2_service_path="/etc/systemd/system/phase2.service"
 
-echo "Cron job set up to run '$script_path' at reboot."
+# Write phase2 service content to the file
+sudo tee "$phase2_service_path" > /dev/null <<EOL
+[Unit]
+Description=Phase 2 Script
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash $script_path
+
+[Install]
+WantedBy=multi-user.target
+EOL
+
+# Reload systemd daemon
+sudo systemctl daemon-reload
+
+# Enable the phase2 service
+sudo systemctl enable --now phase2.service
+
+echo "Phase 2 service enabled. It will run the script $script_path once after booting, then disable itself."
+
+sudo reboot
