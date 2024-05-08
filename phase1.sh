@@ -43,8 +43,7 @@ sudo disable_splash_screen
 echo "Splash screen disabled."
 
 # Get the username of the current user
-exit
-current_user=$(whoami)
+current_user="$SUDO_USER"
 
 sudo cp -r /home/$current_user/RobertOS-assets /usr/bin/RobertOS-assets
 sudo rm -r /home/$current_user/RobertOS-assets
