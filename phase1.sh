@@ -42,11 +42,8 @@ sudo disable_splash_screen
 
 echo "Splash screen disabled."
 
-# Get the username of the current user
-current_user="$SUDO_USER"
-
-sudo cp -r /home/$current_user/RobertOS-assets /usr/bin/RobertOS-assets
-sudo rm -r /home/$current_user/RobertOS-assets
+sudo cp -r /home/robert/RobertOS-assets /usr/bin/RobertOS-assets
+sudo rm -r /home/robert/RobertOS-assets
 
 # Define the path to the script to be executed
 script_path="/usr/bin/RobertOS-assets/phase2.sh"
