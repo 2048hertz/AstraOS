@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo su
 # Define icon paths
 icon_path_top="/home/RobertOS-assets/logo.png"
 icon_path_bottom="/home/RobertOS-assets/logofull.png"
