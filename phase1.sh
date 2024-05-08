@@ -28,8 +28,31 @@ sudo snap install -y core
 sudo apt install -y git
 sudo apt-get install -y python3-gi
 # Edit /boot/cmdline.txt
-echo "Editing /boot/cmdline.txt..."
-sudo sed -i 's/ quiet splash //g' /boot/cmdline.txt
+#!/bin/bash
+
+# Function to disable Raspberry Pi splash screen
+disable_splash_screen() {
+    # Edit the boot configuration file to disable the splash screen
+    echo "Disabling Raspberry Pi splash screen..."
+    echo "disable_splash=1" | sudo tee -a /boot/config.txt > /dev/null
+}
+
+# Function to grant sudo privileges
+grant_sudo_privileges() {
+    # Add the user to the sudo group
+    echo "Granting sudo privileges..."
+    sudo usermod -aG sudo $USER
+}
+
+# Check if user has sudo privileges
+if [ "$(id -u)" -ne 0 ]; then
+    grant_sudo_privileges
+fi
+
+# Call function to disable splash screen
+disable_splash_screen
+
+echo "Splash screen disabled. You can reboot later to apply changes."
 
 # Check for /boot/config.txt (Optional for some Raspberry Pi versions)
 if [ -f /boot/config.txt ]; then
