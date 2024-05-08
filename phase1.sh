@@ -37,34 +37,12 @@ disable_splash_screen() {
     echo "disable_splash=1" | sudo tee -a /boot/config.txt > /dev/null
 }
 
-# Function to grant sudo privileges
-grant_sudo_privileges() {
-    # Add the user to the sudo group
-    echo "Granting sudo privileges..."
-    sudo usermod -aG sudo $USER
-}
-
-# Check if user has sudo privileges
-if [ "$(id -u)" -ne 0 ]; then
-    grant_sudo_privileges
-fi
+sudo su
 
 # Call function to disable splash screen
 disable_splash_screen
 
 echo "Splash screen disabled."
-
-# Function to grant sudo privileges
-grant_sudo_privileges() {
-    # Add the user to the sudo group
-    echo "Granting sudo privileges..."
-    sudo usermod -aG sudo $USER
-}
-
-# Check if user has sudo privileges
-if [ "$(id -u)" -ne 0 ]; then
-    grant_sudo_privileges
-fi
 
 # Define the path to the script to be executed
 script_path="/home/RobertOS-assets/phase2.sh"
@@ -75,15 +53,18 @@ chmod +x "$script_path"
 # Create a new service unit file for phase2
 phase2_service_path="/etc/systemd/system/phase2.service"
 
-# Write phase2 service content to the file
+# Write phase2 service content to the file (corrected version)
 sudo tee "$phase2_service_path" > /dev/null <<EOL
 [Unit]
 Description=Phase 2 Script
 After=multi-user.target
 
 [Service]
-Type=oneshot
+Type=simple  # Changed from 'oneshot' for continuous execution
+User=your_username  # Replace with the default username for new users
+WorkingDirectory=/home/%u  # Expands to the user's home directory
 ExecStart=/bin/bash $script_path
+Restart=on-failure  # Restart the script if it fails
 
 [Install]
 WantedBy=multi-user.target
@@ -92,9 +73,8 @@ EOL
 # Reload systemd daemon
 sudo systemctl daemon-reload
 
-# Enable the phase2 service
-sudo systemctl enable --now phase2.service
+# Enable the phase2 service (corrected: no need for --now)
+sudo systemctl enable phase2.service
 
-echo "Phase 2 service enabled. It will run the script $script_path once after booting, then disable itself."
-
+echo "Phase 2 service enabled. It will run the script $script_path continuously after booting and restart on failure."
 sudo reboot
