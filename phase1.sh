@@ -38,7 +38,7 @@ disable_splash_screen() {
 }
 
 # Call function to disable splash screen
-sudo disable_splash_screen
+disable_splash_screen
 
 echo "Splash screen disabled."
 
