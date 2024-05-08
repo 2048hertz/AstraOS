@@ -82,10 +82,11 @@ echo "Phase 2 service enabled. It will run the script $script_path continuously 
 # Reboot (Optional, can be done manually)
 read -p "The script has finished. Do you want to reboot now? (y/N) " -r response
 
-if [[ $response =~ ^([Yy]|[Yy]es)$ ]]; then
+if [[ $response =~ ^[Yy](es)?$ ]]; then
   echo "Rebooting now."
   sudo reboot
 else
   echo "Reboot skipped. You can reboot manually later."
 fi
+
 
