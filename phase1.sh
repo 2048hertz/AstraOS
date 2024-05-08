@@ -1,4 +1,4 @@
-#! bin/bash
+#!/bin/bash
 # Welcome to the Robert Computer Operating System build script 1
 # The series of scripts made here should be used on Raspberry Pi OS to build Robert OS
 # Version Teddy-Bear LTS V1
@@ -32,15 +32,13 @@ sudo apt-get install -y python3-gi
 
 # Function to disable Raspberry Pi splash screen
 disable_splash_screen() {
-    # Edit the boot configuration file to disable the splash screen
-    echo "Disabling Raspberry Pi splash screen..."
-    echo "disable_splash=1" | sudo tee -a /boot/config.txt > /dev/null
+  # Edit the boot configuration file to disable the splash screen
+  echo "Disabling Raspberry Pi splash screen..."
+  echo "disable_splash=1" | sudo tee -a /boot/config.txt
 }
 
-sudo su
-
 # Call function to disable splash screen
-disable_splash_screen
+sudo disable_splash_screen
 
 echo "Splash screen disabled."
 
@@ -77,4 +75,14 @@ sudo systemctl daemon-reload
 sudo systemctl enable phase2.service
 
 echo "Phase 2 service enabled. It will run the script $script_path continuously after booting and restart on failure."
-sudo reboot
+
+# Reboot (Optional, can be done manually)
+read -p "The script has finished. Do you want to reboot now? (y/N) " -r response
+
+if [[ $response =~ ^([Yy]|[Yy]es)$ ]]; then
+  echo "Rebooting now."
+  sudo reboot
+else
+  echo "Reboot skipped. You can reboot manually later."
+fi
+
