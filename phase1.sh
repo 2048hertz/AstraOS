@@ -12,7 +12,7 @@ sudo apt install -y xfce4 xfce4-terminal xfce4-goodies firefox
 
 cd /etc/lightdm
 sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak 
-sed -i 's/^user-session=.*/user-session=xfce/' /etc/lightdm/lightdm.conf
+sed -i 's/^user-session=.*/user-session=xfce4-session/' /etc/lightdm/lightdm.conf
 sed -i 's/^greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
 cd
 
