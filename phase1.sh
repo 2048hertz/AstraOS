@@ -27,8 +27,8 @@ sudo apt install -y snap
 sudo snap install -y core
 sudo apt install -y git
 sudo apt-get install -y python3-gi
+
 # Edit /boot/cmdline.txt
-#!/bin/bash
 
 # Function to disable Raspberry Pi splash screen
 disable_splash_screen() {
