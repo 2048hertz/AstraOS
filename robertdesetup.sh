@@ -1,8 +1,8 @@
 #!/bin/bash
 sudo su
 # Define icon paths
-icon_path_top="/home/RobertOS-assets/logo.png"
-icon_path_bottom="/home/RobertOS-assets/logofull.png"
+icon_path_top="/usr/bin/RobertOS-assets/logo.png"
+icon_path_bottom="/usr/bin/RobertOS-assets/logofull.png"
 
 # Function to apply XFCE panel customizations
 apply_panel_customizations() {
