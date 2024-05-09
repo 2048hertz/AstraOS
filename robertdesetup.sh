@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Define icon paths
 icon_path_top="/usr/bin/RobertOS-assets/logo.png"
 icon_path_bottom="/usr/bin/RobertOS-assets/logofull.png"
@@ -6,22 +7,20 @@ icon_path_bottom="/usr/bin/RobertOS-assets/logofull.png"
 # Function to apply XFCE panel customizations
 apply_panel_customizations() {
     # Set icon properties for the top panel
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/menu-icon -t string -s "$icon_path_top"
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/button-icon -t string -s "$icon_path_top"
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/icon-size -t int -s 0
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-label -t bool -s false
-
-    # Restart the panel to apply changes
-    xfce4-panel -r
-
-    # Set properties for the bottom panel
     xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -t int -a -s 1
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/menu-icon -t string -s "$icon_path_bottom"
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/icon-size -t int -s 0
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-label -t bool -s false
-
-    # Move the application menu to the left
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/position -t int -s 0
+    xfconf-query -c xfce4-panel -p /panels/panel-1/length -t int -s 100
+    xfconf-query -c xfce4-panel -p /panels/panel-1/position -t string -s "p=6;x=0;y=0"
+    xfconf-query -c xfce4-panel -p /panels/panel-1/position-locked -t bool -s true
+    xfconf-query -c xfce4-panel -p /panels/panel-1/background-type -t int -s 0
+    xfconf-query -c xfce4-panel -p /panels/panel-1/background-style -t int -s 0
+    xfconf-query -c xfce4-panel -p /panels/panel-1/icon-size -t int -s 0
+    xfconf-query -c xfce4-panel -p /panels/panel-1/row-size -t int -s 0
+    xfconf-query -c xfce4-panel -p /panels/panel-1/length-adjust -t bool -s false
+    xfconf-query -c xfce4-panel -p /panels/panel-1/autohide-behavior -t int -s 0
+    xfconf-query -c xfce4-panel -p /panels/panel-1/enter-opacity -t int -s 100
+    xfconf-query -c xfce4-panel -p /panels/panel-1/leave-opacity -t int -s 100
+    xfconf-query -c xfce4-panel -p /panels/panel-1/opacity -t int -s 100
+    xfconf-query -c xfce4-panel -p /panels/panel-1/dark-mode -t bool -s false
 
     # Restart the panel to apply changes
     xfce4-panel -r
