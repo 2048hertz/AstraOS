@@ -4,7 +4,7 @@ icon_path_top="/usr/bin/RobertOS-assets/logo.png"
 icon_path_bottom="/usr/bin/RobertOS-assets/logofull.png"
 
 # Function to apply XFCE panel customizations
-apply_panel_customizations() {
+apply_xfce_customizations() {
     # Set icon properties for the top panel
     xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -t int -a -s 1
     xfconf-query -c xfce4-panel -p /panels/panel-1/length -t int -s 100
@@ -23,21 +23,13 @@ apply_panel_customizations() {
 
     # Restart the panel to apply changes
     xfce4-panel -r
-}
 
-# Function to set XFCE window manager button layout
-set_button_layout() {
-    # Define the desired button layout
+    # Set the XFCE window manager button layout
     button_layout="ROLHCT"
-
-    # Set the button layout using xfconf-query
     xfconf-query -c xfwm4 -p /general/button_layout -s "$button_layout"
 
     echo "Button layout changed to $button_layout"
-}
 
-# Function to change system fonts to Helvetica if available
-change_system_fonts() {
     # Check if Helvetica font is available
     if fc-list | grep -i "helvetica" >/dev/null; then
         # Set system font to Helvetica
@@ -47,18 +39,6 @@ change_system_fonts() {
     else
         echo "Helvetica font not found. Using default system fonts."
     fi
-}
-
-# Function to apply all XFCE customizations
-apply_xfce_customizations() {
-    # Apply panel customizations
-    apply_panel_customizations
-
-    # Set XFCE window manager button layout
-    set_button_layout
-
-    # Change system fonts to Helvetica if available
-    change_system_fonts
 
     echo "Default XFCE configuration updated successfully."
 }
