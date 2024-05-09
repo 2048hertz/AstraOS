@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo su
 # Define icon paths
 icon_path_top="/usr/bin/RobertOS-assets/logo.png"
 icon_path_bottom="/usr/bin/RobertOS-assets/logofull.png"
@@ -39,6 +38,19 @@ set_button_layout() {
     echo "Button layout changed to $button_layout"
 }
 
+# Function to change system fonts to Helvetica if available
+change_system_fonts() {
+    # Check if Helvetica font is available
+    if fc-list | grep -i "helvetica" >/dev/null; then
+        # Set system font to Helvetica
+        xfconf-query -c xsettings -p /Net/ThemeName -s "Helvetica"
+        xfconf-query -c xsettings -p /Gtk/FontName -s "Helvetica"
+        echo "System fonts changed to Helvetica"
+    else
+        echo "Helvetica font not found. Using default system fonts."
+    fi
+}
+
 # Function to apply all XFCE customizations
 apply_xfce_customizations() {
     # Apply panel customizations
@@ -46,6 +58,9 @@ apply_xfce_customizations() {
 
     # Set XFCE window manager button layout
     set_button_layout
+
+    # Change system fonts to Helvetica if available
+    change_system_fonts
 
     echo "Default XFCE configuration updated successfully."
 }
