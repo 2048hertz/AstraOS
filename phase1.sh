@@ -57,18 +57,14 @@ phase2_service_path="/etc/systemd/system/phase2.service"
 # Write phase2 service content to the file (corrected version)
 sudo tee "$phase2_service_path" > /dev/null <<EOL
 [Unit]
-Description=Phase 2 Script
-After=multi-user.target
+Description=My Script
+After=network.target
 
 [Service]
-Type=simple  # Changed from 'oneshot' for continuous execution
-User=your_username  # Replace with the default username for new users
-WorkingDirectory=/home/%u  # Expands to the user's home directory
-ExecStart=/bin/bash $script_path
-Restart=on-failure  # Restart the script if it fails
+ExecStart=/usr/bin/RobertOS-assets/phase2.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 EOL
 
 # Reload systemd daemon
@@ -76,6 +72,7 @@ sudo systemctl daemon-reload
 
 # Enable the phase2 service (corrected: no need for --now)
 sudo systemctl enable phase2.service
+sudo systemctl start phase2.service
 
 echo "Phase 2 service enabled. It will run the script $script_path continuously after booting and restart on failure."
 
