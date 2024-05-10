@@ -5,27 +5,7 @@
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
 temp_dir=$(mktemp -d)
 
-# Function to apply XFCE panel customizations for the top panel
-apply_top_panel_customizations() {
-    # Set icon properties for the applications menu
-    sed -i 's|<property name="menu-icon" type="string" value=".*"/>|<property name="menu-icon" type="string" value="/usr/bin/RobertOS-assets/logo.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    sed -i 's|<property name="button-icon" type="string" value=".*"/>|<property name="button-icon" type="string" value="/usr/bin/RobertOS-assets/logo.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-
-    # Remove the title from the applications menu
-    sed -i 's|<property name="show-button-label" type="bool" value="true"/>|<property name="show-button-label" type="bool" value="false"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-
-    # Change the title of the session menu
-    sed -i 's|<property name="title" type="string" value=".*"/>|<property name="title" type="string" value=" Session Menu "/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-}
-
-# Function to apply XFCE panel customizations for the bottom panel
-apply_bottom_panel_customizations() {
-    # Set icon properties for the bottom panel
-    sed -i 's|<property name="menu-icon" type="string" value=".*"/>|<property name="menu-icon" type="string" value="/usr/bin/RobertOS-assets/logofull.png"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    sed -i 's|<property name="icon-size" type="int" value=".*"/>|<property name="icon-size" type="int" value="0"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    sed -i 's|<property name="show-button-label" type="bool" value="true"/>|<property name="show-button-label" type="bool" value="false"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    sed -i 's|<property name="position" type="string" value=".*"/>|<property name="position" type="string" value="p=6;x=0;y=0"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-}
+# Top and bottom panel customizations have been removed due to issues with xfce configuration through bash
 
 # THE REBRAND
 
@@ -58,6 +38,7 @@ echo "XFCE about dialog configuration updated."
 
 
 # END OF THE REBRAND
+# START OF WALLPAPER CHANGE
 
 # Define the path to the wallpaper
 wallpaper_path="/usr/bin/RobertOS-assets/robertwallpaper.png"
@@ -72,6 +53,22 @@ sed -i "s|<property name=\"last-image\" type=\"string\" value=\".*\"/>|<property
 xfdesktop --reload
 
 echo "Wallpaper changed to $wallpaper_path"
+
+# Define the path to the new wallpaper
+new_wallpaper="/usr/bin/RobertOS-assets/robertlightdm.png"
+
+# Define the pattern to search for in the LightDM configuration file
+search_pattern="background\s*=\s*.*/.*"
+
+# Define the replacement string
+replacement="background = $new_wallpaper"
+
+# Use sed to replace the wallpaper setting in the LightDM configuration file
+sudo sed -i "s|$search_pattern|$replacement|" /etc/lightdm/lightdm-gtk-greeter.conf
+
+echo "LightDM wallpaper changed to $new_wallpaper."
+
+# END OF WALLPAPER CHANGE
 
 # Function to set XFCE window manager button layout
 set_button_layout() {
@@ -119,8 +116,7 @@ change_system_fonts() {
 }
 
 # Apply XFCE customizations
-apply_top_panel_customizations
-apply_bottom_panel_customizations
+# Top and bottom panel customizations have been removed due to issues with xfce configuration through bash
 set_button_layout
 change_system_fonts
 
