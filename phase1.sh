@@ -61,8 +61,8 @@ Description=Phase2-activation
 After=network.target
 
 [Service]
-Type=forking
-ExecStart=/bin/bash -c /usr/bin/RobertOS-assets/phase2.sh
+Type=oneshot
+ExecStart=/bin/bash -c "sudo /usr/bin/RobertOS-assets/phase2.sh"
 
 [Install]
 WantedBy=default.target

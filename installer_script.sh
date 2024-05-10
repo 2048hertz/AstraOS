@@ -29,4 +29,4 @@ sudo localectl set-locale "LANG=$locale"
 sudo timedatectl set-timezone $timezone
 
 # Disable the service after user creation
-sudo systemctl disable installer_script.service
+sudo systemctl disable installer.service
