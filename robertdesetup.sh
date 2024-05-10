@@ -26,6 +26,8 @@ apply_bottom_panel_customizations() {
     sed -i 's|<property name="position" type="string" value=".*"/>|<property name="position" type="string" value="p=6;x=0;y=0"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 }
 
+# THE REBRAND
+
 # Define the new contents
 new_contents="Gevox RTD (Robert Technology and Design) Software Team - 2048megahertz@proton.me\nBugs should be reported at our github - https://github.com/2048hertz/RobertOS/"
 
@@ -33,6 +35,28 @@ new_contents="Gevox RTD (Robert Technology and Design) Software Team - 2048megah
 echo -e "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
 
 echo "Contents of /usr/share/xfce4/vendorinfo have been updated."
+
+# Define the new values
+os_name="RobertOS 1.0"
+distributor="Gevox Robert Technology and Design"
+application_name="about"
+
+# Path to the about dialog configuration file
+about_dialog_config="/etc/xdg/xfce4/about-dlg.rc"
+
+# Update the OS name
+sed -i "s/^OSName=.*/OSName=\"$os_name\"/" "$about_dialog_config"
+
+# Update the distributor
+sed -i "s/^Distributor=.*/Distributor=\"$distributor\"/" "$about_dialog_config"
+
+# Update the application name
+sed -i "s/^ApplicationName=.*/ApplicationName=\"$application_name\"/" "$about_dialog_config"
+
+echo "XFCE about dialog configuration updated."
+
+
+# END OF THE REBRAND
 
 # Define the path to the wallpaper
 wallpaper_path="/usr/bin/RobertOS-assets/robertwallpaper.png"
