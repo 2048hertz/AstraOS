@@ -57,7 +57,7 @@ phase2_service_path="/etc/systemd/system/phase2.service"
 # Write phase2 service content to the file (corrected version)
 sudo tee "$phase2_service_path" > /dev/null <<EOL
 [Unit]
-Description=My Script
+Description=Phase2-activation
 After=network.target
 
 [Service]
