@@ -1,4 +1,5 @@
 #!/bin/bash
+#Written by Ayaan Eusufzai of Gevox/RTD
 
 # Define font download URL
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
