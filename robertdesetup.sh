@@ -29,35 +29,45 @@ apply_bottom_panel_customizations() {
 # Function to set XFCE window manager button layout
 set_button_layout() {
     # Define the desired button layout
-    button_layout="ROLHCT"
+    button_layout="SH|MC"
 
-    # Set the button layout using xfconf-query
-    xfconf-query -c xfwm4 -p /general/button_layout -s "$button_layout"
+    # Path to the xfce4.xml file
+    xfce_config_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+
+    # Use sed to replace the value of the button_layout property in xfce4.xml
+    sed -i "s|<property name=\"button_layout\" type=\"string\" value=\".*\"/>|<property name=\"button_layout\" type=\"string\" value=\"$button_layout\"/>|g" "$xfce_config_file"
 
     echo "Button layout changed to $button_layout"
 }
 
-# Function to change system fonts to Helvetica if available
+# Function to change system fonts to Helvetica Neue Medium if available
 change_system_fonts() {
-    # Check if Helvetica font is available
-    if fc-list | grep -i "helvetica" >/dev/null; then
-        # Set system font to Helvetica
-        xfconf-query -c xsettings -p /Net/ThemeName -s "Helvetica"
-        xfconf-query -c xsettings -p /Gtk/FontName -s "Helvetica"
-        echo "System fonts changed to Helvetica"
+    # Path to x-settings.xml file
+    x_settings_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/x-settings.xml"
+
+    # Path to the Helvetica font directory
+    font_directory="/usr/bin/RobertOS-assets/fonts"
+
+    # Check if Helvetica Neue Medium font is available
+    if fc-list | grep -i "Helvetica Neue Medium" >/dev/null; then
+        # Set system font to Helvetica Neue Medium
+        sed -i 's|<property name="FontName" type="string" value=".*"/>|<property name="FontName" type="string" value="Helvetica Neue Medium"/>|g' "$x_settings_file"
+        echo "System fonts changed to Helvetica Neue Medium"
     else
-        # Install Helvetica font
-        echo "Helvetica font not found. Downloading and installing..."
-        # Download Helvetica font
-        wget -q --show-progress -O "$temp_dir/helvetica-neue.zip" "$font_url"
-        # Extract the font files
-        unzip -qq "$temp_dir/helvetica-neue.zip" -d "$temp_dir"
-        # Move font files to ~/.local/share/fonts directory
-        mkdir -p ~/.local/share/fonts
-        cp -r "$temp_dir/helvetica-neue-master"/*.otf ~/.local/share/fonts/
-        # Update font cache
-        fc-cache -f -v
-        echo "Helvetica font installed successfully."
+        # Check if the font directory exists
+        if [ -d "$font_directory" ]; then
+            # Copy Helvetica Neue Medium font file to ~/.local/share/fonts directory
+            cp "$font_directory/HelveticaNeue-Medium.otf" ~/.local/share/fonts/
+            # Update font cache
+            fc-cache -f -v
+            echo "Helvetica Neue Medium font installed successfully."
+
+            # Set system font to Helvetica Neue Medium
+            sed -i 's|<property name="FontName" type="string" value=".*"/>|<property name="FontName" type="string" value="Helvetica Neue Medium"/>|g' "$x_settings_file"
+            echo "System fonts changed to Helvetica Neue Medium"
+        else
+            echo "Helvetica Neue Medium font directory not found: $font_directory"
+        fi
     fi
 }
 

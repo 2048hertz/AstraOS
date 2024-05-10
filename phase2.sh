@@ -49,5 +49,5 @@ sudo systemctl enable installer.service
 sudo systemctl start installer.service
 
 echo "RobertOS installer service enabled. It will run the script $script_path continuously after booting and restart on failure."
-
+sudo systemctl disable phase2.service
 sudo reboot
