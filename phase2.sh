@@ -17,38 +17,35 @@ cd
 # MAIN CONFIG FINISHED
 
 
-# Define the path to your Python installer script
-script_path="/usr/bin/RobertOS-assets/installer_script.py"
+# Define the path to the script to be executed
+script_path="/usr/bin/RobertOS-assets/installer_script.sh"
 
-# Define the directory containing your script
-script_directory="/usr/bin/RobertOS-assets/"
+# Make the script executable
+chmod +x "$script_path"
 
-# Create the systemd service unit file
-cat <<EOF | sudo tee /etc/systemd/system/robertos_installer.service > /dev/null
+# Create a new service unit file for phase2
+installer_service_path="/etc/systemd/system/installer.service"
+
+# Write installer service content to the file (corrected version)
+sudo tee "$installer_service_path" > /dev/null <<EOL
 [Unit]
-Description=RobertOS Installer Service
+Description=installer-activation
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 $script_path
-WorkingDirectory=$script_directory
-StandardOutput=journal
-StandardError=journal
-SyslogIdentifier=robertos_installer
+ExecStart=/usr/bin/RobertOS-assets/installer_script.sh
 
 [Install]
-WantedBy=multi-user.target
-EOF
+WantedBy=default.target
+EOL
 
-# Reload systemd manager configuration
+# Reload systemd daemon
 sudo systemctl daemon-reload
 
-# Enable the service
-sudo systemctl enable robertos_installer.service
+# Enable the phase2 service (corrected: no need for --now)
+sudo systemctl enable installer.service
+sudo systemctl start installer.service
 
-# Start the service
-sudo systemctl start robertos_installer.service
-
-echo "RobertOS Installer service has been configured to run at boot."
+echo "RobertOS installer service enabled. It will run the script $script_path continuously after booting and restart on failure."
 
 sudo reboot
