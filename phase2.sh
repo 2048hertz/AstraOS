@@ -2,7 +2,6 @@
 # Welcome to the Robert Computer Operating System build script 2
 # Written by Ayaan Eusufzai
 # Version Teddy-Bear LTS V1
-sudo systemctl disable phase2.service
 sudo cp -r /home/RobertOS-assets /usr/bin/RobertOS-assets
 sudo rm -r /home/RobertOS-assets
 sudo sh /usr/bin/RobertOS-assets/robertdesetup.sh
