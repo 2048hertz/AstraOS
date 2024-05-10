@@ -27,6 +27,7 @@ sudo apt install -y snap
 sudo snap install -y core
 sudo apt install -y git
 sudo apt-get install -y python3-gi
+sudo apt remove -y eom
 
 # Edit /boot/cmdline.txt
 
