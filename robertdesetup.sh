@@ -26,6 +26,21 @@ apply_bottom_panel_customizations() {
     sed -i 's|<property name="position" type="string" value=".*"/>|<property name="position" type="string" value="p=6;x=0;y=0"/>|' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 }
 
+
+# Define the path to the wallpaper
+wallpaper_path="/usr/bin/RobertOS-assets/robertwallpaper.png"
+
+# Path to the xfce4-desktop.xml file
+xfce4_desktop_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+
+# Use sed to update the wallpaper setting in xfce4-desktop.xml
+sed -i "s|<property name=\"last-image\" type=\"string\" value=\".*\"/>|<property name=\"last-image\" type=\"string\" value=\"$wallpaper_path\"/>|g" "$xfce4_desktop_file"
+
+# Notify XFCE to reload the desktop settings
+xfdesktop --reload
+
+echo "Wallpaper changed to $wallpaper_path"
+
 # Function to set XFCE window manager button layout
 set_button_layout() {
     # Define the desired button layout
