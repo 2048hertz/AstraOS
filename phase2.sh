@@ -33,7 +33,8 @@ Description=installer-activation
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/RobertOS-assets/installer_script.sh
+Type=forking
+ExecStart=/bin/bash -c /usr/bin/RobertOS-assets/installer_script.sh
 
 [Install]
 WantedBy=default.target
