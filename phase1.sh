@@ -77,17 +77,6 @@ sudo systemctl start phase2.service
 
 echo "Phase 2 service enabled. It will run the script $script_path continuously after booting and restart on failure."
 
-# Reboot (Optional, can be done manually)
-read -p "The script has finished. Do you want to reboot now? (y/N) " -r response
-
-while true; do
-    read -p "Do you wish to install this program? " yn
-    case $yn in
-        [Yy]* ) sudo reboot; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-
+sudo reboot
 
 
