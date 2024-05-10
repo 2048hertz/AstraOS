@@ -34,7 +34,7 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c "sudo /usr/bin/RobertOS-assets/installer_script.sh"
+ExecStart=/bin/bash -c "/usr/bin/RobertOS-assets/installer_script.sh"
 
 [Install]
 WantedBy=default.target
