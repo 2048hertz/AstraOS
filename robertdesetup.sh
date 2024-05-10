@@ -125,13 +125,19 @@ change_system_fonts
 
 echo "Default XFCE configuration updated successfully."
 
-# Copy the script to the default skeleton directory
-sudo cp "$0" /etc/skel/xfce_customization.sh
-sudo chmod +x /etc/skel/xfce_customization.sh
+
+# Define the path to the setup script
+setup_script="/usr/bin/robertdesetup.sh"
+
+# Define the line to add to adduser.conf
+line_to_add="ADDUSER_POST_CREATE_SCRIPT=$setup_script"
+
+# Use sed to insert the line at line number 98 in adduser.conf
+sudo sed -i "98i$line_to_add" /etc/adduser.conf
+
+echo "Setup script added to adduser.conf at line 98."
 
 # Clean up temporary directory
 rm -rf "$temp_dir"
 
 echo "The XFCE customization script has been executed."
-
-
