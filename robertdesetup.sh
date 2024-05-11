@@ -44,13 +44,14 @@ echo "XFCE about dialog configuration updated."
 wallpaper_path="/usr/bin/RobertOS-assets/robertwallpaper.png"
 
 # Path to the xfce4-desktop.xml file
-xfce4_desktop_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+xfce4_desktop_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
 
 # Use sed to update the wallpaper setting in xfce4-desktop.xml
 sed -i "s|<property name=\"last-image\" type=\"string\" value=\".*\"/>|<property name=\"last-image\" type=\"string\" value=\"$wallpaper_path\"/>|g" "$xfce4_desktop_file"
 
 # Notify XFCE to reload the desktop settings
 xfdesktop --reload
+mv /usr/bin/RobertOS-assets/robertwallpaper.png /usr/share/images/desktop-base/default.png
 
 echo "Wallpaper changed to $wallpaper_path"
 
@@ -76,7 +77,7 @@ set_button_layout() {
     button_layout="SH|MC"
 
     # Path to the xfce4.xml file
-    xfce_config_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+    xfce_config_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
 
     # Use sed to replace the value of the button_layout property in xfce4.xml
     sed -i "s|<property name=\"button_layout\" type=\"string\" value=\".*\"/>|<property name=\"button_layout\" type=\"string\" value=\"$button_layout\"/>|g" "$xfce_config_file"
@@ -87,7 +88,7 @@ set_button_layout() {
 # Function to change system fonts to Helvetica Neue Medium if available
 change_system_fonts() {
     # Path to x-settings.xml file
-    x_settings_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/x-settings.xml"
+    x_settings_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/x-settings.xml"
 
     # Path to the Helvetica font directory
     font_directory="/usr/bin/RobertOS-assets/fonts"
