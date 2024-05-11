@@ -19,8 +19,8 @@ cd
 # Main 
 
 sudo apt update -y && sudo apt upgrade -y
-sudo apt remove chromium -y
 sudo apt full-upgrade -y
+sudo apt remove chromium -y
 sudo apt install -y flatpak
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt install -y snap
