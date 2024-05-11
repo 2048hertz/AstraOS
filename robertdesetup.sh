@@ -85,41 +85,9 @@ set_button_layout() {
     echo "Button layout changed to $button_layout"
 }
 
-# Function to change system fonts to Helvetica Neue Medium if available
-change_system_fonts() {
-    # Path to x-settings.xml file
-    x_settings_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/x-settings.xml"
-
-    # Path to the Helvetica font directory
-    font_directory="/usr/bin/RobertOS-assets/fonts"
-
-    # Check if Helvetica Neue Medium font is available
-    if fc-list | grep -i "Helvetica Neue Medium" >/dev/null; then
-        # Set system font to Helvetica Neue Medium
-        sed -i 's|<property name="FontName" type="string" value=".*"/>|<property name="FontName" type="string" value="Helvetica Neue Medium"/>|g' "$x_settings_file"
-        echo "System fonts changed to Helvetica Neue Medium"
-    else
-        # Check if the font directory exists
-        if [ -d "$font_directory" ]; then
-            # Copy Helvetica Neue Medium font file to ~/.local/share/fonts directory
-            cp "$font_directory/HelveticaNeue-Medium.otf" ~/.local/share/fonts/
-            # Update font cache
-            fc-cache -f -v
-            echo "Helvetica Neue Medium font installed successfully."
-
-            # Set system font to Helvetica Neue Medium
-            sed -i 's|<property name="FontName" type="string" value=".*"/>|<property name="FontName" type="string" value="Helvetica Neue Medium"/>|g' "$x_settings_file"
-            echo "System fonts changed to Helvetica Neue Medium"
-        else
-            echo "Helvetica Neue Medium font directory not found: $font_directory"
-        fi
-    fi
-}
-
 # Apply XFCE customizations
 # Top and bottom panel customizations have been removed due to issues with xfce configuration through bash
 set_button_layout
-change_system_fonts
 
 echo "Default XFCE configuration updated successfully."
 
