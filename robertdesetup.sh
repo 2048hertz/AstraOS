@@ -13,7 +13,7 @@ temp_dir=$(mktemp -d)
 new_contents="Gevox RTD (Robert Technology and Design) Software Team - 2048megahertz@proton.me\nBugs should be reported at our github - https://github.com/2048hertz/RobertOS/"
 
 # Write the new contents to the file
-echo -e "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
+echo "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
 
 echo "Contents of /usr/share/xfce4/vendorinfo have been updated."
 
