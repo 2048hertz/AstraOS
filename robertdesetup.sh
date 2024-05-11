@@ -10,7 +10,7 @@ temp_dir=$(mktemp -d)
 # THE REBRAND
 
 # Define the new contents
-new_contents="Gevox RTD (Robert Technology and Design) Software Team - 2048megahertz@proton.me\nBugs should be reported at our github - https://github.com/2048hertz/RobertOS/"
+new_contents="Gevox RTD (Robert Technology and Design)\n\nSoftware Team - 2048megahertz@proton.me\n\nBugs should be reported at our github - https://github.com/2048hertz/RobertOS/"
 
 # Write the new contents to the file
 echo "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
