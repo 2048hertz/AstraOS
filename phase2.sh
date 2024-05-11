@@ -4,6 +4,12 @@
 # Version Teddy-Bear LTS V1
 sudo cp -r /home/RobertOS-assets /usr/bin/RobertOS-assets
 sudo rm -r /home/RobertOS-assets
+wget https://github.com/2048hertz/roscamera/archive/refs/heads/main.zip
+unzip main.zip
+sudo rm main.zip
+cd /roscamera-main/
+sudo sh installer.sh
+cd
 sudo sh /usr/bin/RobertOS-assets/robertdesetup.sh
 sudo apt-get remove -y rp-prefapps lxappearance lxde lxde-* lxinput lxmenu-data lxpanel lxpolkit lxrandr lxsession* lxsession lxshortcut lxtask lxterminal
 sudo apt-get autoremove -y && sudo apt-get autoclean -y
