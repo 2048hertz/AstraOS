@@ -36,8 +36,8 @@ sed -i "s/^ApplicationName=.*/ApplicationName=\"$application_name\"/" "$about_di
 
 echo "XFCE about dialog configuration updated."
 
-
 # END OF THE REBRAND
+
 # START OF WALLPAPER CHANGE
 
 # Define the path to the wallpaper
