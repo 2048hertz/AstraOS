@@ -28,6 +28,8 @@ sudo snap install -y core
 sudo apt install -y git
 sudo apt-get install -y python3-gi
 sudo apt remove -y eom
+sudo apt install -y network-manager-gnome
+sudo apt install -y cheese
 
 # Edit /boot/cmdline.txt
 
