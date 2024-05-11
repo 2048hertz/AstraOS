@@ -5,7 +5,7 @@
 sudo cp -r /home/RobertOS-assets /usr/bin/RobertOS-assets
 sudo rm -r /home/RobertOS-assets
 wget https://github.com/2048hertz/roscamera/archive/refs/heads/main.zip
-unzip main.zip
+sudo unzip main.zip
 sudo rm main.zip
 cd /roscamera-main/
 sudo sh installer.sh
