@@ -31,6 +31,7 @@ sudo apt remove -y eom
 sudo apt install -y network-manager-gnome
 sudo apt install -y aisleriot
 sudo apt install -y gnome-chess
+sudo apt install -y four-in-a-row
 
 # Edit /boot/cmdline.txt
 
