@@ -29,6 +29,8 @@ sudo apt install -y git
 sudo apt-get install -y python3-gi
 sudo apt remove -y eom
 sudo apt install -y network-manager-gnome
+sudo apt install -y aisleriot
+sudo apt install -y gnome-chess
 
 # Edit /boot/cmdline.txt
 
