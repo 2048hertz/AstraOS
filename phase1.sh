@@ -26,6 +26,8 @@ flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/fl
 sudo apt install -y snap
 sudo snap install -y core
 sudo apt install -y git
+sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+sudo cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt-get install -y python3-gi
 sudo apt remove -y eom
 sudo apt install -y network-manager-gnome
