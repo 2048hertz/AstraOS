@@ -35,6 +35,7 @@ sudo apt install -y network-manager-gnome
 sudo apt install -y aisleriot
 sudo apt install -y gnome-chess
 sudo apt install -y four-in-a-row
+sudo apt install -y libreoffice
 
 # Edit /boot/cmdline.txt
 
