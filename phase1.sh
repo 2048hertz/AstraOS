@@ -30,6 +30,7 @@ sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 sudo cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt-get install -y python3-gi
 sudo apt remove -y eom
+sudo apt remove -y desktop-base
 sudo apt install -y network-manager-gnome
 sudo apt install -y aisleriot
 sudo apt install -y gnome-chess
