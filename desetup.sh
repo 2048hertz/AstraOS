@@ -67,17 +67,8 @@ mv /usr/bin/RobertOS-assets/robertwallpaper.png /usr/share/images/desktop-base/d
 
 echo "Wallpaper changed to $wallpaper_path"
 
-# Define the path to the new wallpaper
-new_wallpaper="/usr/bin/RobertOS-assets/robertlightdm.png"
-
-# Define the pattern to search for in the LightDM configuration file
-search_pattern="background\s*=\s*.*/.*"
-
-# Define the replacement string
-replacement="background = $new_wallpaper"
-
 # Use sed to replace the wallpaper setting in the LightDM configuration file
-sudo sed -i "s|$search_pattern|$replacement|" /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i '9s|.*|#  background = /usr/bin/RobertOS-assets/robertlightdm.png/|' /etc/lightdm/lightdm-gtk-greeter.conf
 
 echo "LightDM wallpaper changed to $new_wallpaper."
 

@@ -14,6 +14,7 @@ cd /etc/lightdm
 sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak 
 sed -i 's/^user-session=.*/user-session=xfce4-session/' /etc/lightdm/lightdm.conf
 sed -i 's/^greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+sed -i 's/^autologin-session=.*/autologin-session=xfce4-session/' /etc/lightdm/lightdm.conf
 cd
 
 # Main 
@@ -26,6 +27,9 @@ flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/fl
 sudo apt install -y snap
 sudo snap install -y core
 sudo apt install -y git build-essential cmake
+sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
+wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg
+sudo apt update && sudo apt install box64-arm64 -y
 sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 sudo cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt-get install -y python3-gi
@@ -53,5 +57,3 @@ echo "Splash screen disabled."
 echo "Please run the command 'sudo sh /usr/bin/RobertOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
 sleep 5
 sudo reboot
-
-
