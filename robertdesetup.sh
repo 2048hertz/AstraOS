@@ -75,12 +75,14 @@ echo "LightDM wallpaper changed to $new_wallpaper."
 set_button_layout() {
     # Define the desired button layout
     button_layout="SH|MC"
+    title_alignment="center"
 
     # Path to the xfce4.xml file
     xfce_config_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
 
     # Use sed to replace the value of the button_layout property in xfce4.xml
     sed -i "s|<property name=\"button_layout\" type=\"string\" value=\".*\"/>|<property name=\"button_layout\" type=\"string\" value=\"$button_layout\"/>|g" "$xfce_config_file"
+    sed -i "s|<property name=\"title_alignment\" type=\"string\" value=\".*\"/>|<property name=\"title_alignment\" type=\"string\" value=\"$title_alignment\"/>|g" "$xfce_config_file"
 
     echo "Button layout changed to $button_layout"
 }
