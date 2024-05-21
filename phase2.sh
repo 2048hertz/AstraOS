@@ -2,12 +2,6 @@
 # Welcome to the Robert Computer Operating System build script 2
 # Written by Ayaan Eusufzai
 # Version Teddy-Bear LTS V1
-wget https://github.com/2048hertz/roscamera/archive/refs/heads/main.zip
-sudo unzip main.zip
-sudo rm main.zip
-cd /roscamera-main/
-sudo sh installer.sh
-cd
 sudo sh /usr/bin/RobertOS-assets/desetup.sh
 sudo apt-get remove -y rp-prefapps lxappearance lxde lxde-* lxinput lxmenu-data lxpanel lxpolkit lxrandr lxsession* lxsession lxshortcut lxtask lxterminal
 sudo apt-get autoremove -y && sudo apt-get autoclean -y

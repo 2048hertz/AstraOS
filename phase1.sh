@@ -25,7 +25,7 @@ sudo apt install -y flatpak
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt install -y snap
 sudo snap install -y core
-sudo apt install -y git
+sudo apt install -y git build-essential cmake
 sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 sudo cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt-get install -y python3-gi
