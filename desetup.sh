@@ -36,6 +36,18 @@ sed -i "s/^ApplicationName=.*/ApplicationName=\"$application_name\"/" "$about_di
 
 echo "XFCE about dialog configuration updated."
 
+# Define the source and destination paths
+SOURCE_DIR="/usr/bin/RobertOS-assets"
+DEST_DIR="/usr/share/icons/hicolor"
+
+# Replace the icons for each specified size
+sudo cp "$SOURCE_DIR/16x16/org.xfce.panel.applicationsmenu.png" "$DEST_DIR/16x16/apps/org.xfce.panel.applicationsmenu.png"
+sudo cp "$SOURCE_DIR/24x24/org.xfce.panel.applicationsmenu.png" "$DEST_DIR/24x24/apps/org.xfce.panel.applicationsmenu.png"
+sudo cp "$SOURCE_DIR/32x32/org.xfce.panel.applicationsmenu.png" "$DEST_DIR/32x32/apps/org.xfce.panel.applicationsmenu.png"
+sudo cp "$SOURCE_DIR/48x48/org.xfce.panel.applicationsmenu.png" "$DEST_DIR/48x48/apps/org.xfce.panel.applicationsmenu.png"
+
+echo "Icon replacement completed."
+
 # END OF THE REBRAND
 
 # START OF WALLPAPER CHANGE
@@ -95,7 +107,7 @@ echo "Default XFCE configuration updated successfully."
 
 
 # Define the path to the setup script
-setup_script="/usr/bin/robertdesetup.sh"
+setup_script="/usr/bin/desetup.sh"
 
 # Define the line to add to adduser.conf
 line_to_add="ADDUSER_POST_CREATE_SCRIPT=$setup_script"

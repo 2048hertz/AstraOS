@@ -10,7 +10,7 @@ sudo rm main.zip
 cd /roscamera-main/
 sudo sh installer.sh
 cd
-sudo sh /usr/bin/RobertOS-assets/robertdesetup.sh
+sudo sh /usr/bin/RobertOS-assets/desetup.sh
 sudo apt-get remove -y rp-prefapps lxappearance lxde lxde-* lxinput lxmenu-data lxpanel lxpolkit lxrandr lxsession* lxsession lxshortcut lxtask lxterminal
 sudo apt-get autoremove -y && sudo apt-get autoclean -y
 sudo wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
