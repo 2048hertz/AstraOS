@@ -1,5 +1,5 @@
 #!/bin/bash
-# Welcome to the Robert Computer Operating System build script 1
+# Welcome to the Robert Operating System build script 1; the name is not final.
 # The series of scripts made here should be used on Raspberry Pi OS to build Robert OS
 # Version Teddy-Bear LTS V1
 # Written by Ayaan Eusufzai/2048hertz of Gevox/Azak/RTD
@@ -50,9 +50,6 @@ disable_splash_screen() {
 disable_splash_screen
 
 echo "Splash screen disabled."
-
-sudo cp -r /home/robert/RobertOS-assets /usr/bin/RobertOS-assets
-sudo rm -r /home/robert/RobertOS-assets
 
 # Define the path to the script to be executed
 script_path="/usr/bin/RobertOS-assets/phase2.sh"
