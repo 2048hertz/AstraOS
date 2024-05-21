@@ -13,12 +13,12 @@ useradd -m "$username"
 echo -e "$password\n$password" | passwd "$username"
 
 # Set locale
-sudo localectl set-locale "LANG=$language"
+localectl set-locale "LANG=$language"
 
 # Set timezone
-sudo timedatectl set-timezone "$timezone"
+timedatectl set-timezone "$timezone"
 
 # Disable the service after user creation
-sudo systemctl disable installer.service
+systemctl disable installer.service
 
 echo "Installation process completed."
