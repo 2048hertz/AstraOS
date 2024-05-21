@@ -69,6 +69,7 @@ echo "Wallpaper changed to $wallpaper_path"
 
 # Use sed to replace the wallpaper setting in the LightDM configuration file
 sudo sed -i '9s|.*|#  background = /usr/bin/RobertOS-assets/robertlightdm.png/|' /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i '10s|.*|#  user-background = false|' /etc/lightdm/lightdm-gtk-greeter.conf
 
 echo "LightDM wallpaper changed to $new_wallpaper."
 
