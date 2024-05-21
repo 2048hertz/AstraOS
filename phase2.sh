@@ -21,11 +21,13 @@ sudo sh rum.sh
 
 # Define the path to the script to be executed
 script_path="/usr/bin/RobertOS-assets/installer_script.sh"
+script_path2="/usr/bin/RobertOS-assets/user_interaction.sh"
 
-# Make the script executable
+# Make the scripts executable
 chmod +x "$script_path"
+chmod +x "$script_path2"
 
-# Create a new service unit file for phase2
+# Create a new service unit file for the installer
 installer_service_path="/etc/systemd/system/installer.service"
 
 # Write installer service content to the file (corrected version)
@@ -36,19 +38,16 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c "/usr/bin/RobertOS-assets/installer_script.sh"
+ExecStart=/usr/bin/RobertOS-assets/installer_script.sh
+StandardInput=tty-force
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
 EOL
 
 # Reload systemd daemon
 sudo systemctl daemon-reload
 
-# Enable the phase2 service (corrected: no need for --now)
+# Enable the installer service (corrected: no need for --now)
 sudo systemctl enable installer.service
 sudo systemctl start installer.service
-
-echo "RobertOS installer service enabled. It will run the script $script_path continuously after booting and restart on failure."
-sudo systemctl disable phase2.service
-sudo reboot

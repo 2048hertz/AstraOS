@@ -50,39 +50,8 @@ disable_splash_screen() {
 disable_splash_screen
 
 echo "Splash screen disabled."
-
-# Define the path to the script to be executed
-script_path="/usr/bin/RobertOS-assets/phase2.sh"
-
-# Make the script executable
-chmod +x "$script_path"
-
-# Create a new service unit file for phase2
-phase2_service_path="/etc/systemd/system/phase2.service"
-
-# Write phase2 service content to the file (corrected version)
-sudo tee "$phase2_service_path" > /dev/null <<EOL
-[Unit]
-Description=Phase2-activation
-After=network.target
-
-[Service]
-Type=oneshot
-ExecStart=/bin/bash -c "sudo /usr/bin/RobertOS-assets/phase2.sh"
-
-[Install]
-WantedBy=default.target
-EOL
-
-# Reload systemd daemon
-sudo systemctl daemon-reload
-
-# Enable the phase2 service (corrected: no need for --now)
-sudo systemctl enable phase2.service
-sudo systemctl start phase2.service
-
-echo "Phase 2 service enabled. It will run the script $script_path continuously after booting and restart on failure."
-
+echo "Please run the command 'sudo sh /usr/bin/RobertOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
+sleep 5
 sudo reboot
 
 
