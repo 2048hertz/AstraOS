@@ -27,13 +27,9 @@ flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/fl
 sudo apt install -y snap
 sudo snap install -y core
 sudo apt install -y git build-essential cmake
-sudo git clone https://github.com/ptitSeb/box64.git
-cd ~/box64
-sudo mkdir build
-cd build
-sudo cmake .. -D RPI5ARM64=1 -D CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make -j$(nproc)
-sudo make install
+sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
+wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg
+sudo apt update && sudo apt install box64 -y
 sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 sudo cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt-get install -y python3-gi
