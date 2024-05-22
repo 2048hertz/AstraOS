@@ -2,7 +2,7 @@
 # Welcome to the Robert Operating System build script 1; the name is not final.
 # The series of scripts made here should be used on Raspberry Pi OS to build Robert OS
 # Version Teddy-Bear LTS V1
-# Written by Ayaan Eusufzai/2048hertz of Gevox/Azak/RTD
+# Written by Ayaan Eusufzai/2048hertz
 # Please make sure you have the correct version of Raspberry Pi OS which this script is made for, the latest version of the base operating system will be installed automatically from the script
 # Started: 7/5/24 1:28 AM Bangladesh Time
 
