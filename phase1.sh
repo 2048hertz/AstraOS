@@ -22,6 +22,8 @@ cd
 sudo apt update -y && sudo apt upgrade -y
 sudo apt full-upgrade -y
 sudo apt remove chromium -y
+# Addition of pi-apps
+git clone https://github.com/Botspot/pi-apps && ~/pi-apps/install
 sudo apt install -y flatpak
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt install -y snap
