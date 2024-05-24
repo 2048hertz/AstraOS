@@ -1,4 +1,5 @@
 #!/bin/bash
+# Written by Ayaan Eusufzai
 
 # Prompt user for inputs
 username=$(systemd-ask-password "Enter Username: ")

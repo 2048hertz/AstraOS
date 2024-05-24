@@ -1,7 +1,7 @@
 #!/bin/bash
 # Welcome to the Robert Computer Operating System build script 2
 # Written by Ayaan Eusufzai
-# Version Teddy-Bear LTS V1
+# Version Teddy-Bear V1
 
 # Add camera installation code here
 

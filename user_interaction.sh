@@ -1,4 +1,5 @@
 #!/bin/bash
+# Written by Ayaan Eusufzai
 
 # Prompt user to select timezone
 timezone=$(whiptail --title "Timezone Selection" --menu "Choose your timezone:" 20 60 15 $(timedatectl list-timezones) 3>&1 1>&2 2>&3)

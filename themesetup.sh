@@ -1,4 +1,5 @@
 #!/bin/bash
+# Written by Ayaan Eusufzai
 
 # Clone the Orchis theme repository
 git clone https://github.com/vinceliuice/Orchis-theme.git
