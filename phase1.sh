@@ -49,7 +49,7 @@ sudo apt install -y libreoffice
 disable_splash_screen() {
   # Edit the boot configuration file to disable the splash screen
   echo "Disabling Raspberry Pi splash screen..."
-  echo "disable_splash=1" | sudo tee -a /boot/config.txt
+  echo "disable_splash=1" | sudo tee -a /boot/firmware/config.txt
 }
 
 # Call function to disable splash screen
