@@ -11,7 +11,7 @@ sudo apt-get install -y gtk2-engines-murrine gtk2-engines-pixbuf sassc
 cd Orchis-theme
 
 # Run the installation script
-./install.sh --tweaks.solid
+./install.sh --tweaks solid
 
 # Install the Numix Square icon theme manually
 mkdir -p ~/.icons
