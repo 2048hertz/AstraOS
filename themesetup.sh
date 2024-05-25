@@ -9,9 +9,9 @@ sudo apt-get install -y gtk2-engines-murrine gtk2-engines-pixbuf sassc software-
 
 # Add the Numix PPA and install the Numix Square icon theme
 sudo apt-get install -y dirmngr
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1DCBDC01F9BA0ADA
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1DCBDC01F9BA0ADA || true
 echo "deb http://ppa.launchpad.net/numix/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/numix-ppa.list
-sudo apt-get update
+sudo apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true
 sudo apt-get install -y numix-icon-theme numix-icon-theme-square
 
 # Navigate to the cloned directory
