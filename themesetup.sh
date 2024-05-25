@@ -17,8 +17,13 @@ cd Orchis-theme
 xfconf-query -c xfwm4 -p /general/theme -s "Orchis-dark"
 xfconf-query -c xsettings -p /Net/ThemeName -s "Orchis-dark"
 
-# Install Numix Square icon theme
-sudo apt-get install -y numix-icon-theme-square
+# Install the Numix Square icon theme manually
+mkdir -p ~/.icons
+cd ~/.icons
+wget -O Numix-Square.tar.gz https://github.com/numixproject/numix-icon-theme-square/archive/master.tar.gz
+tar -xzvf Numix-Square.tar.gz
+mv numix-icon-theme-square-master Numix-Square
+rm Numix-Square.tar.gz
 
 # Apply the Numix Square icon theme
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Numix-Square"
