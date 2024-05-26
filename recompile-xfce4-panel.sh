@@ -3,9 +3,9 @@
 # Made to recompile Xfce4 components with our oaknut versions.
 
 # Variables
-REPO_URL="https://github.com/2048hertz/oaknut-xfce/archive/refs/heads/master.zip"
-ZIP_FILE="master.zip"
-DIR_NAME="oaknut-xfce-master"
+REPO_URL="https://github.com/2048hertz/oaknut-xfce/archive/refs/heads/xfce-4.18.zip"
+ZIP_FILE="xfce-4.18.zip"
+DIR_NAME="./oaknut-xfce-xfce-4.18"
 
 # Ensure dependencies are installed (adjust as necessary for your system)
 sudo apt-get update
