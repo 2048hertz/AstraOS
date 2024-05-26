@@ -5,7 +5,6 @@
 
 # Add camera installation code here
 
-sudo sh /usr/bin/RobertOS-assets/themesetup.sh
 sudo sh /usr/bin/RobertOS-assets/desetup.sh
 sudo apt-get remove -y rp-prefapps lxappearance lxde lxde-* lxinput lxmenu-data lxpanel lxpolkit lxrandr lxsession* lxsession lxshortcut lxtask lxterminal
 sudo apt-get autoremove -y && sudo apt-get autoclean -y
