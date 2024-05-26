@@ -58,5 +58,5 @@ disable_splash_screen
 
 echo "Splash screen disabled."
 echo "Please run the command 'sudo sh /usr/bin/RobertOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
-sleep 5
+sleep 10
 sudo reboot
