@@ -1,5 +1,6 @@
 #!/bin/bash
 # Welcome to the Robert Computer Operating System build script 2
+# Most of the code that is important to phase 2 is in the desetup.sh script, for more information please contact 2048megahertz@proton.me
 # Written by Ayaan Eusufzai
 # Version Teddy-Bear V1
 
