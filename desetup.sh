@@ -1,6 +1,9 @@
 #!/bin/bash
 # Written by Ayaan Eusufzai
 
+# Theme setup
+sudo sh /usr/bin/RobertOS-assets/themesetup.sh
+
 # Define font download URL
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
 temp_dir=$(mktemp -d)
