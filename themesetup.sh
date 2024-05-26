@@ -20,14 +20,7 @@ cd Orchis-theme
 # Run the installation script
 ./install.sh --tweaks solid
 
-# Define the path of the new xsettings.xml
-new_xsettings_file="/usr/bin/RobertOS-assets/xsettings.xml"
-
-# Define the destination path for xsettings.xml in the home directory
-xfce_config_dir="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml"
-xfce_config_file="$xfce_config_dir/xsettings.xml"
-
 # Copy the new xsettings.xml to the destination directory, completely replacing the old file
-cp -f "$new_xsettings_file" "$xfce_config_file"
+cp /usr/bin/RobertOS-assets/xsettings.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
 
 echo "Please reboot the system to apply all changes"
