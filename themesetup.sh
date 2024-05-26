@@ -12,7 +12,7 @@ sudo apt-get install -y dirmngr
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1DCBDC01F9BA0ADA || true
 echo "deb http://ppa.launchpad.net/numix/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/numix-ppa.list
 sudo apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true
-sudo apt-get install -y numix-icon-theme numix-icon-theme-square
+sudo apt-get install --allow-unauthenticated -y numix-icon-theme numix-icon-theme-square
 
 # Navigate to the cloned directory
 cd Orchis-theme
