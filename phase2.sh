@@ -12,13 +12,8 @@ sudo apt-get autoremove -y && sudo apt-get autoclean -y
 sudo wget https://github.com/2048hertz/robertosupdatemanager/releases/download/1.0/rum.sh
 sudo sh rum.sh
 
-
 # MAIN CONFIG FINISHED
 
 # Finishing up
-<<<<<<< HEAD
 sudo sh /usr/bin/AstraOS-assets/prepare_image.sh
 
-=======
-sudo bash prepare_image.sh --create-iso
->>>>>>> 501fd5a7f027dbf043a612373135e90c9af707dc
