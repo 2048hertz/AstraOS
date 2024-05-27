@@ -1,16 +1,15 @@
-# RobertOS HOME
-
-- To be renamed
+# AstraOS HOME
 
 An ARM64 Linux based operating system for the Robert Computer (Raspberry Pi handheld computer). Based off of Raspberry Pi OS
 
-WORK IN PROGRESS - Currently RobertOS can only be built by the user
+WORK IN PROGRESS - Currently AstraOS can only be built by the user
 
-RobertOS is easy to build compared to other operating systems.
+AstraOS is easy to build compared to other operating systems.
 The asset branch contains bash and python scripts to build the OS.
 There is a version up right now but it's not stable and well-tested. It will require some more work.
 
 HOW TO BUILD (outdated, we recommend not to download this os before the iso for 0.1 alpha is released)
+# THIS SECTION HAS YET TO BE UPDATED FOR THE NAME CHANGE FROM ROBERTOS > ASTRAOS
 
 1) Install the "2024-03-15-raspios-bookworm-armhf.img.xz" version of Raspberry Pi OS
 2) Do a basic set up, do not update or install anything.
