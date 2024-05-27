@@ -2,7 +2,7 @@
 # Written by Ayaan Eusufzai
 
 # Theme setup
-sudo sh /usr/bin/RobertOS-assets/themesetup.sh
+sudo sh /usr/bin/AstraOS-assets/themesetup.sh
 
 # Define font download URL
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
@@ -13,7 +13,7 @@ temp_dir=$(mktemp -d)
 # THE REBRAND
 
 # Define the new contents
-new_contents="Gevox RTD (Robert Technology and Design)\n\nSoftware Team - 2048megahertz@proton.me\n\nBugs should be reported at our github - https://github.com/2048hertz/RobertOS/"
+new_contents="Gevox ATD (Astra Technology and Design)\n\nSoftware Team - 2048megahertz@proton.me\n\nBugs should be reported at our github - https://github.com/2048hertz/AstraOS/"
 
 # Write the new contents to the file
 echo "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
@@ -21,8 +21,8 @@ echo "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
 echo "Contents of /usr/share/xfce4/vendorinfo have been updated."
 
 # Define the new values
-os_name="RobertOS 1.0"
-distributor="Gevox Robert Technology and Design"
+os_name="AstraOS 1.0"
+distributor="Gevox Astra Technology and Design"
 application_name="about"
 
 # Path to the about dialog configuration file
@@ -40,7 +40,7 @@ sed -i "s/^ApplicationName=.*/ApplicationName=\"$application_name\"/" "$about_di
 echo "XFCE about dialog configuration updated."
 
 # Define the source and destination paths
-SOURCE_DIR="/usr/bin/RobertOS-assets"
+SOURCE_DIR="/usr/bin/AstraOS-assets"
 DEST_DIR="/usr/share/icons/hicolor"
 
 # Replace the icons for each specified size
@@ -56,7 +56,7 @@ echo "Icon replacement completed."
 # START OF WALLPAPER CHANGE
 
 # Define the path to the wallpaper
-wallpaper_path="/usr/bin/RobertOS-assets/robertwallpaper.png"
+wallpaper_path="/usr/bin/AstraOS-assets/robertwallpaper.png"
 
 # Path to the xfce4-desktop.xml file
 xfce4_desktop_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
@@ -66,12 +66,12 @@ sed -i "s|<property name=\"last-image\" type=\"string\" value=\".*\"/>|<property
 
 # Notify XFCE to reload the desktop settings
 xfdesktop --reload
-mv /usr/bin/RobertOS-assets/robertwallpaper.png /usr/share/images/desktop-base/default.png
+mv /usr/bin/AstraOS-assets/robertwallpaper.png /usr/share/images/desktop-base/default.png
 
 echo "Wallpaper changed to $wallpaper_path"
 
 # Use sed to replace the wallpaper setting in the LightDM configuration file
-sudo sed -i '9s|.*|#  background = /usr/bin/RobertOS-assets/robertlightdm.png/|' /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i '9s|.*|#  background = /usr/bin/AstraOS-assets/robertlightdm.png/|' /etc/lightdm/lightdm-gtk-greeter.conf
 sudo sed -i '10s|.*|#  user-background = false|' /etc/lightdm/lightdm-gtk-greeter.conf
 
 echo "LightDM wallpaper changed to $new_wallpaper."
@@ -84,8 +84,8 @@ set_button_layout() {
     xfce_config_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
 
     # Use sed to replace the value of the button_layout property in xfce4.xml
-    sed -i '9s|.*|    <property name="button_layout" type="string" value="SH|MC"/>|' "$xfce_config_file"
-    sed -i '64s|.*|    <property name="title_alignment" type="string" value="center"/>|' "$xfce_config_file"
+    sudo sed -i '9i|.*|    <property name="button_layout" type="string" value="SH|MC"/>|' "$xfce_config_file"
+    sudp sed -i '64i|.*|    <property name="title_alignment" type="string" value="center"/>|' "$xfce_config_file"
 
 
     echo "Button layout changed to $button_layout"

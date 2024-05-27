@@ -21,6 +21,6 @@ cd Orchis-theme
 ./install.sh --tweaks solid
 
 # Copy the new xsettings.xml to the destination directory, completely replacing the old file
-cp /usr/bin/RobertOS-assets/xsettings.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
+cp /usr/bin/AstraOS-assets/xsettings.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
 
 echo "Please reboot the system to apply all changes"

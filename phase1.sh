@@ -1,6 +1,6 @@
 #!/bin/bash
-# Welcome to the Robert Operating System build script 1; the name is not final.
-# The series of scripts made here should be used on Raspberry Pi OS to build Robert OS
+# Welcome to the Astra Operating System build script 1; the name is not final.
+# The series of scripts made here should be used on Raspberry Pi OS to build Astra OS
 # Version Teddy-Bear V1
 # Written by Ayaan Eusufzai/2048hertz
 # Please make sure you have the correct version of Raspberry Pi OS which this script is made for, the latest version of the base operating system will be installed automatically from the script
@@ -34,7 +34,7 @@ sudo apt install -y git build-essential cmake
 sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
 wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg
 sudo apt update && sudo apt install box64 -y
-sudo sh /usr/bin/RobertOS-assets/rpi-overclock.sh
+sudo sh /usr/bin/AstraOS-assets/rpi-overclock.sh
 sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 sudo cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt-get install -y python3-gi
@@ -57,6 +57,6 @@ disable_splash_screen() {
 disable_splash_screen
 
 echo "Splash screen disabled."
-echo "Please run the command 'sudo sh /usr/bin/RobertOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
+echo "Please run the command 'sudo sh /usr/bin/AstraOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
 sleep 10
 sudo reboot
