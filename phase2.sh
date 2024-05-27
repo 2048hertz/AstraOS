@@ -16,4 +16,3 @@ sudo sh rum.sh
 
 # Finishing up
 sudo sh /usr/bin/AstraOS-assets/prepare_image.sh
-
