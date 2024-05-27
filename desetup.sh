@@ -56,7 +56,7 @@ echo "Icon replacement completed."
 # START OF WALLPAPER CHANGE
 
 # Define the path to the wallpaper
-wallpaper_path="/usr/bin/AstraOS-assets/robertwallpaper.png"
+wallpaper_path="/usr/bin/AstraOS-assets/astrawallpaper.png"
 
 # Path to the xfce4-desktop.xml file
 xfce4_desktop_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
@@ -66,12 +66,12 @@ sed -i "s|<property name=\"last-image\" type=\"string\" value=\".*\"/>|<property
 
 # Notify XFCE to reload the desktop settings
 xfdesktop --reload
-mv /usr/bin/AstraOS-assets/robertwallpaper.png /usr/share/images/desktop-base/default.png
+mv /usr/bin/AstraOS-assets/astrawallpaper.png /usr/share/images/desktop-base/default.png
 
 echo "Wallpaper changed to $wallpaper_path"
 
 # Use sed to replace the wallpaper setting in the LightDM configuration file
-sudo sed -i '9s|.*|#  background = /usr/bin/AstraOS-assets/robertlightdm.png/|' /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed -i '9s|.*|#  background = /usr/bin/AstraOS-assets/astralightdm.png/|' /etc/lightdm/lightdm-gtk-greeter.conf
 sudo sed -i '10s|.*|#  user-background = false|' /etc/lightdm/lightdm-gtk-greeter.conf
 
 echo "LightDM wallpaper changed to $new_wallpaper."
