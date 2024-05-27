@@ -16,4 +16,4 @@ sudo sh rum.sh
 # MAIN CONFIG FINISHED
 
 # Finishing up
-sudo sh /usr/bin/RobertOS-assets/prepare_image.sh
+sudo bash prepare_image.sh --create-iso
