@@ -55,18 +55,13 @@ echo "Icon replacement completed."
 
 # START OF WALLPAPER CHANGE
 
-# Define the path to the wallpaper
-wallpaper_path="/usr/bin/AstraOS-assets/astrawallpaper.png"
-
-# Path to the xfce4-desktop.xml file
-xfce4_desktop_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-
 # Use sed to update the wallpaper setting in xfce4-desktop.xml
-sed -i "s|<property name=\"last-image\" type=\"string\" value=\".*\"/>|<property name=\"last-image\" type=\"string\" value=\"$wallpaper_path\"/>|g" "$xfce4_desktop_file"
+xfconf-query -c xfce4-desktop \
+-p /backdrop/screen0/monitor1/workspace0/last-image \
+-s /usr/bin/AstraOS-assets/astrawallpaper.png
 
 # Notify XFCE to reload the desktop settings
 xfdesktop --reload
-mv /usr/bin/AstraOS-assets/astrawallpaper.png /usr/share/images/desktop-base/default.png
 
 echo "Wallpaper changed to $wallpaper_path"
 
