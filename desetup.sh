@@ -78,7 +78,7 @@ set_button_layout() {
 }
 
 top_panel() {
-    session_values = -n -a -t string -s "+lock-screen" -t string -s "-switch-user" -t string -s "-separator" -t string -s "+suspend" -t string -s "+hibernate" -t string -s "+hybrid-sleep" -t string -s "-separator" -t string -s "+shutdown" -t string -s "+restart" -t string -s "-separator" -t string -s "+logout" -t string -s "-logout-dialog"
+    session_values= -n -a -t string -s "+lock-screen" -t string -s "-switch-user" -t string -s "-separator" -t string -s "+suspend" -t string -s "+hibernate" -t string -s "+hybrid-sleep" -t string -s "-separator" -t string -s "+shutdown" -t string -s "+restart" -t string -s "-separator" -t string -s "+logout" -t string -s "-logout-dialog"
     xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-title -s false
     xfconf-query -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
     xfconf-query -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
