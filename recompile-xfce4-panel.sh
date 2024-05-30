@@ -9,7 +9,7 @@ DIR_NAME="./oaknut-xfce-xfce-4.18"
 
 # Ensure dependencies are installed (adjust as necessary for your system)
 sudo apt-get update
-sudo apt-get install -y build-essential autoconf automake libtool pkg-config libxfce4ui-2-dev libxfce4util-dev libgtk-3-dev libglib2.0-dev libdbus-glib-1-dev intltool wget unzip xfce4-dev-tools
+sudo apt-get install -y build-essential autoconf automake libtool pkg-config libxfce4ui-2-dev libxfce4util-dev libgtk-3-dev libglib2.0-dev libdbus-glib-1-dev intltool wget unzip xfce4-dev-tools gtk-doc-tools exo-utils libgarcon-gtk3-1-0 libwnck-3-0
 
 # Download the repository zip file
 wget $REPO_URL -O $ZIP_FILE
