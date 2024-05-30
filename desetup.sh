@@ -77,9 +77,20 @@ set_button_layout() {
     echo "Button layout changed to SH|MC"
 }
 
+top_panel() {
+    session_values = -n -a -t string -s "+lock-screen" -t string -s "-switch-user" -t string -s "-separator" -t string -s "+suspend" -t string -s "+hibernate" -t string -s "+hybrid-sleep" -t string -s "-separator" -t string -s "+shutdown" -t string -s "+restart" -t string -s "-separator" -t string -s "+logout" -t string -s "-logout-dialog"
+    xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-title -s false
+    xfconf-query -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
+    xfconf-query -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
+    xfconf-query -c xfce4-panel -o /plugins/plugin-14/items -s $session_values
+    xfconf-query -c xfce4-panel -p /plugins/plugin-14/items $session_values
+
+}
+
 # Apply XFCE customizations
 # Top and bottom panel customizations have been removed due to issues with xfce configuration through bash
 set_button_layout
+top_panel
 
 echo "Default XFCE configuration updated successfully."
 
