@@ -75,15 +75,9 @@ echo "LightDM wallpaper changed to $new_wallpaper."
 
 # Function to set XFCE window manager button layout
 set_button_layout() {
-    # Path to the xfce4.xml file
-    xfce_config_file="/home/robert/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
-
-    # Use sed to replace the value of the button_layout property in xfce4.xml
-    sudo sed -i '9i|.*|    <property name="button_layout" type="string" value="SH|MC"/>|' "$xfce_config_file"
-    sudp sed -i '64i|.*|    <property name="title_alignment" type="string" value="center"/>|' "$xfce_config_file"
-
-
-    echo "Button layout changed to $button_layout"
+    xfconf-query -c xfwm4 -p /general/button_layout -s "SH|MC"
+    xfconf-query -c xfwm4 -p /general/title_alignment -s "center"
+    echo "Button layout changed to SH|MC"
 }
 
 # Apply XFCE customizations

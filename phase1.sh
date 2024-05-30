@@ -30,6 +30,7 @@ sudo apt full-upgrade -y
 sudo apt remove -y chromium
 sudo apt remove -y desktop-base
 sudo apt remove -y eom
+sudo apt remove -y openbox
 
 # Addition of pi-apps
 git clone https://github.com/Botspot/pi-apps && ~/pi-apps/install
