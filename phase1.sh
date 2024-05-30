@@ -68,6 +68,6 @@ disable_splash_screen() {
 disable_splash_screen
 
 echo "Splash screen disabled."
-echo "Please run the command 'sudo sh /usr/bin/AstraOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
+echo "Please run the command 'sh /usr/bin/AstraOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
 sleep 10
 sudo reboot

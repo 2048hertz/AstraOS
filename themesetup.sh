@@ -2,7 +2,7 @@
 # Written by Ayaan Eusufzai
 
 # Clone the Orchis theme repository
-git clone https://github.com/vinceliuice/Orchis-theme.git
+sudo git clone https://github.com/vinceliuice/Orchis-theme.git
 
 # Install necessary dependencies for building the theme
 sudo apt-get install -y gtk2-engines-murrine gtk2-engines-pixbuf sassc software-properties-common

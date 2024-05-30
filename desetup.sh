@@ -20,24 +20,18 @@ echo "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
 
 echo "Contents of /usr/share/xfce4/vendorinfo have been updated."
 
-# Define the new values
-os_name="AstraOS 1.0"
-distributor="Gevox Astra Technology and Design"
-application_name="about"
+# Backup the original /etc/os-release file
+sudo cp /etc/os-release /etc/os-release.bak
 
-# Path to the about dialog configuration file
-about_dialog_config="/etc/xdg/xfce4/about-dlg.rc"
+# Use sed to replace the required fields in /etc/os-release
+sudo sed -i 's/^PRETTY_NAME=.*/PRETTY_NAME="Astra Operating System (V1.0 Teddy Bear)"/' /etc/os-release
+sudo sed -i 's/^NAME=.*/NAME="AstraOS"/' /etc/os-release
+sudo sed -i 's/^VERSION_ID=.*/VERSION_ID="1.0 (Teddy Bear)"/' /etc/os-release
+sudo sed -i 's/^VERSION_CODENAME=.*/VERSION_CODENAME=teddybear/' /etc/os-release
+sudo sed -i 's/^ID=.*/ID=astraos/' /etc/os-release
 
-# Update the OS name
-sed -i "s/^OSName=.*/OSName=\"$os_name\"/" "$about_dialog_config"
-
-# Update the distributor
-sed -i "s/^Distributor=.*/Distributor=\"$distributor\"/" "$about_dialog_config"
-
-# Update the application name
-sed -i "s/^ApplicationName=.*/ApplicationName=\"$application_name\"/" "$about_dialog_config"
-
-echo "XFCE about dialog configuration updated."
+echo "Changes applied to /etc/os-release:"
+cat /etc/os-release
 
 # Define the source and destination paths
 SOURCE_DIR="/usr/bin/AstraOS-assets"
@@ -78,13 +72,9 @@ set_button_layout() {
 }
 
 top_panel() {
-    session_values= -n -a -t string -s "+lock-screen" -t string -s "-switch-user" -t string -s "-separator" -t string -s "+suspend" -t string -s "+hibernate" -t string -s "+hybrid-sleep" -t string -s "-separator" -t string -s "+shutdown" -t string -s "+restart" -t string -s "-separator" -t string -s "+logout" -t string -s "-logout-dialog"
     xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-title -s false
     xfconf-query -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
     xfconf-query -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
-    xfconf-query -c xfce4-panel -o /plugins/plugin-14/items -s $session_values
-    xfconf-query -c xfce4-panel -p /plugins/plugin-14/items $session_values
-
 }
 
 # Apply XFCE customizations
