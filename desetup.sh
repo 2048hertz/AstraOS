@@ -2,7 +2,7 @@
 # Written by Ayaan Eusufzai
 
 # Theme setup
-sudo sh /usr/bin/AstraOS-assets/themesetup.sh
+sh /usr/bin/AstraOS-assets/themesetup.sh
 
 # Define font download URL
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
