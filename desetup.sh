@@ -52,7 +52,7 @@ echo "Icon replacement completed."
 
 # START OF WALLPAPER CHANGE
 
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorHDMI-1/workspace0/last-image -s /usr/bin/AstraOS-assets/astrawallpaper.png
+sudo -u $baseuser xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorHDMI-1/workspace0/last-image -s /usr/bin/AstraOS-assets/astrawallpaper.png
 
 # Notify XFCE to reload the desktop settings
 xfdesktop --reload
