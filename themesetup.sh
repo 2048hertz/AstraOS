@@ -4,6 +4,9 @@
 # Clone the Orchis theme repository
 sudo git clone https://github.com/vinceliuice/Orchis-theme.git
 
+# Get variables for xfconf-query
+source /usr/bin/AstraOS-assets/phase1.sh
+
 # Install necessary dependencies for building the theme
 sudo apt-get install -y gtk2-engines-murrine gtk2-engines-pixbuf sassc software-properties-common
 
@@ -21,7 +24,7 @@ sudo apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::Allow
 sudo apt-get install --allow-unauthenticated -y numix-icon-theme numix-icon-theme-square
 
 # Use xfconf-query to change settings
-xfconf-query -c xsettings -p /Net/ThemeName -s "Orchis-Dark"
-xfconf-query -c xsettings -p /Net/IconThemeName -s "Numix-Square"
+sudo -u $baseuser xfconf-query -c xsettings -p /Net/ThemeName -s "Orchis-Dark"
+sudo -u $baseuser xfconf-query -c xsettings -p /Net/IconThemeName -s "Numix-Square"
 
 echo "Please reboot the system to apply all changes"

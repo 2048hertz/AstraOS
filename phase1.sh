@@ -6,6 +6,8 @@
 # Please make sure you have the correct version of Raspberry Pi OS which this script is made for, the latest version of the base operating system will be installed automatically from the script
 # Started: 7/5/24 1:28 AM Bangladesh Time
 
+read -p "Enter your current RpiOS username: " baseusertoexport
+export baseuser="$baseusertoexport"
 sudo apt update -y && sudo apt upgrade -y
 
 # Install XFCE4 and related packages

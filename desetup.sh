@@ -4,6 +4,9 @@
 # Theme setup
 sh /usr/bin/AstraOS-assets/themesetup.sh
 
+# Get variables for xfconf-query
+source /usr/bin/AstraOS-assets/phase1.sh
+
 # Define font download URL
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
 temp_dir=$(mktemp -d)
@@ -66,15 +69,15 @@ echo "LightDM wallpaper changed to $new_wallpaper."
 
 # Function to set XFCE window manager button layout
 set_button_layout() {
-    xfconf-query -c xfwm4 -p /general/button_layout -s "SH|MC"
-    xfconf-query -c xfwm4 -p /general/title_alignment -s "center"
+    sudo -u $baseuser xfconf-query -c xfwm4 -p /general/button_layout -s "SH|MC"
+    sudo -u $baseuser xfconf-query -c xfwm4 -p /general/title_alignment -s "center"
     echo "Button layout changed to SH|MC"
 }
 
 top_panel() {
-    xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-title -s false
-    xfconf-query -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
-    xfconf-query -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
+    sudo -u $baseuser xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-title -s false
+    sudo -u $baseuser xfconf-query xfconf-query -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
+    sudo -u $baseuser xfconf-query -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
 }
 
 # Apply XFCE customizations
