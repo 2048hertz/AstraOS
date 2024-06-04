@@ -47,7 +47,7 @@ sudo apt install -y git build-essential cmake
 sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
 wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg
 sudo apt update && sudo apt install -y box64
-sudo sh /usr/bin/AstraOS-assets/rpi-overclock.sh
+sudo bash /usr/bin/AstraOS-assets/rpi-overclock.sh
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 sudo apt install -y python3-gi
@@ -70,6 +70,6 @@ disable_splash_screen() {
 disable_splash_screen
 
 echo "Splash screen disabled."
-echo "Please run the command 'sh /usr/bin/AstraOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
+echo "Please run the command 'bash /usr/bin/AstraOS-assets/phase2.sh' after reboot, automatically rebooting in 5 seconds."
 sleep 10
 sudo reboot

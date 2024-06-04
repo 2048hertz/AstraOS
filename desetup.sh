@@ -2,7 +2,7 @@
 # Written by Ayaan Eusufzai
 
 # Theme setup
-sh /usr/bin/AstraOS-assets/themesetup.sh
+bash /usr/bin/AstraOS-assets/themesetup.sh
 
 # Get variables for xfconf-query
 source /usr/bin/AstraOS-assets/phase1.sh
