@@ -74,9 +74,9 @@ set_button_layout() {
 }
 
 top_panel() {
-    sudo -u $baseuser xfconf-query -c xfce4-panel -p /plugins/plugin-1/show-button-title -s false
-    sudo -u $baseuser xfconf-query xfconf-query -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
-    sudo -u $baseuser xfconf-query -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
+    sudo -u $baseuser xfconf-query --create -c xfce4-panel -p /plugins/plugin-1/show-button-title -s "false"
+    sudo -u $baseuser xfconf-query --create -c xfce4-panel -p /plugins/plugin-14/button-title -s 3
+    sudo -u $baseuser xfconf-query --create -c xfce4-panel -p /plugins/plugin-14/custom-title -s " Session Menu "
 }
 
 # Apply XFCE customizations
