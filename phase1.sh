@@ -29,6 +29,7 @@ DefaultSession=xfce.desktop
 
 sudo apt update -y && sudo apt upgrade -y
 sudo apt full-upgrade -y
+sudo apt install -y preload
 sudo apt remove -y chromium
 sudo apt remove -y desktop-base
 sudo apt remove -y eom
