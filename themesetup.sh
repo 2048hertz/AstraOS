@@ -5,7 +5,7 @@
 sudo git clone https://github.com/vinceliuice/Orchis-theme.git
 
 # Get variables for xfconf-query
-source /usr/bin/AstraOS-assets/phase1.sh
+read -p "Enter your current RpiOS username: " baseuser
 
 # Install necessary dependencies for building the theme
 sudo apt-get install -y gtk2-engines-murrine gtk2-engines-pixbuf sassc software-properties-common

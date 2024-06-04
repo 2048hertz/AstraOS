@@ -5,7 +5,7 @@
 bash /usr/bin/AstraOS-assets/themesetup.sh
 
 # Get variables for xfconf-query
-source /usr/bin/AstraOS-assets/phase1.sh
+read -p "Enter your current username: " baseuser
 
 # Define font download URL
 font_url="https://github.com/ifvictr/helvetica-neue/archive/refs/heads/master.zip"
