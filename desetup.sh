@@ -20,7 +20,6 @@ new_contents="Gevox ATD (Astra Technology and Design)\n\nSoftware Team - 2048meg
 
 # Write the new contents to the file
 echo "$new_contents" | sudo tee /usr/share/xfce4/vendorinfo > /dev/null
-
 echo "Contents of /usr/share/xfce4/vendorinfo have been updated."
 
 # Backup the original /etc/os-release file
