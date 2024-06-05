@@ -17,6 +17,7 @@ cd Orchis-theme
 ./install.sh --tweaks solid
 
 # Add the Numix PPA and install the Numix Square icon theme
+# TO BE FIXED, CREATES A FRANKENDEBIAN
 sudo apt-get install -y dirmngr
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1DCBDC01F9BA0ADA || true
 echo "deb http://ppa.launchpad.net/numix/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/numix-ppa.list
