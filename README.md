@@ -1,9 +1,5 @@
 # AstraOS HOME
 
-UPDATE: This github page is no longer maintained, a new fork of this will soon come out.
-
-Can be renamed to 4096 OS or 2048 OS
-
 CURRENTLY IN AN UNUSABLE STATE, IF DOWNLOADED AND SOMEHOW BUILT USING OUTDATED BUILD INSTRUCTIONS THEN PLEASE DO NOT EXPECT ANY UPDATES SINCE UPDATES WILL BE BUILT FOR THE STABLE VERSIONS OF ASTRAOS, OR DO NOT DOWNLOAD ANY UPDATES BECAUSE THEY WILL HAVE THE POSSIBILITY TO BREAK YOUR INSTALL.
 
 An ARM64 Linux based operating system for the Robert Computer (Raspberry Pi handheld computer). Based off of Raspberry Pi OS
